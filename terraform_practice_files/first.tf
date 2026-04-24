@@ -13,6 +13,9 @@ resource "aws_instance" "demo_in_india"{
     instance_type = "t3.micro"
     key_name = "ubuntu"
     provider = aws.india
+    tags = {
+      Name = "demo_ec2_india"
+    }
 }
 
 resource "aws_instance" "demo_in_us" {
@@ -20,6 +23,9 @@ resource "aws_instance" "demo_in_us" {
     instance_type = "t3.micro"
     key_name = "ubuntu"
     provider = aws.us
+    tags = {
+      Name = "demo_ec2_US"
+    }
 }
 
 
