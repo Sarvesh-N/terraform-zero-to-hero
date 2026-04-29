@@ -1,33 +1,19 @@
-provider "aws" {
+provider "aws"{
+    alias = "India"
     region = "ap-south-1"
-    alias = "india"
 }
 
-variable "ami" {
-    description = "AMI Value of the isntance"
-    type = string
-    default = ""
+provider "aws"{
+    alias = "us"
+    region = "us-east-1"
 }
 
-variable "type" {
-    description = "specifies the type of the isntance"
-    type = string
-    default = "t3.micro"
-}
-
-
-variable "name" {
-    description = "specify the tag value here"
-    type = string
-}
-
-
-resource "aws_instance" "demo" {
+resource "aws_instance" "In_instance" {
     ami = var.ami
     instance_type = var.type
     tags = {
-      Name = var.name
+      Name = "demo_ec2"
     }
-    provider = aws.india
-    
+    provider = aws.India
+    security_groups = [aws_security_group.sg.id]
 }
