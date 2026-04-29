@@ -8,16 +8,6 @@ provider "aws"{
     region = "us-east-1"
 }
 
-resource "aws_instance" "In_instance" {
-    ami = var.ami
-    instance_type = var.type
-    tags = {
-      Name = "demo_ec2"
-    }
-    provider = aws.India
-    vpc_security_group_ids = [aws_security_group.sg.id]
-}
-
 
 resource "aws_security_group" "sg" {
     ingress {
@@ -46,3 +36,24 @@ resource "aws_security_group" "sg" {
       Name : "Demo-sg"
     }
 }
+
+resource "aws_instance" "In_instance" {
+    ami = var.India_ami
+    instance_type = var.type
+    tags = {
+      Name = "demo_ec2_In"
+    }
+    provider = aws.India
+    vpc_security_group_ids = [aws_security_group.sg.id]
+}
+
+
+resource "aws_instance" "us_instance" {
+    ami = var.us_ami
+    instance_type = var.type
+    tags = {
+        Name = "demo_ec2_us"
+    }
+    vpc_security_group_ids = [aws_security_group.sg.id]
+}
+
