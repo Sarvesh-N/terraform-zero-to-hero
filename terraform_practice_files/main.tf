@@ -87,4 +87,3 @@ resource "aws_instance" "us_instance" {
     provider = aws.us
     vpc_security_group_ids = [aws_security_group.us_sg.id]
 }
-
