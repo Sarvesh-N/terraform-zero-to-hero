@@ -10,6 +10,7 @@ provider "aws"{
 
 
 resource "aws_security_group" "India_sg" {
+    provider = aws.India
     ingress {
         description = "ssh access"
         from_port = 22
@@ -49,6 +50,7 @@ resource "aws_instance" "In_instance" {
 
 
 resource "aws_security_group" "us_sg" {
+    provider = aws.us
     ingress {
         description = "ssh access"
         from_port = 22
