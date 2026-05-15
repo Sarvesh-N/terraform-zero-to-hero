@@ -3,6 +3,6 @@ terraform {
     bucket = "mydemoremotebackendbucket"
     key = "sarvesh/terraform.tfstate"
     region = "ap-south-1"
-    dynamodb_table = "loc_files"
+    dynamodb_table = "loc_file"
   }
 }
